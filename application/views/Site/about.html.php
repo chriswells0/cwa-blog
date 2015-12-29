@@ -2,7 +2,7 @@
 					<h1>About This Site</h1>
 					<div class="content-body">
 						<p>To update this page, <a href="/account/login">log in</a> as an admin or developer and edit <a href="/admin/code/views~Site~about.html.php">about.html.php</a>.</p>
-						<p><a href="https://github.com/chriswells0/cwa-blog" title="View the CWA Blog project" rel="external">Core Web Application Blog</a> was built to provide a fully-functional example of how to use the <a href="https://github.com/chriswells0/cwa-lib" title="View the CWA Libraries project" rel="external">Core Web Application Libraries</a> to create a dynamic website. It gives developers a baseline to launch new sites quickly by addressing many of the details that should be included in every site. It follows industry best practices to make it simpler for developers to do the same.</p>
+						<p><a href="https://github.com/chriswells0/cwa-blog" title="View the CWA Blog project" rel="external">Core Web Application Blog</a> provides a fully-functional example of how to use the <a href="https://github.com/chriswells0/cwa-lib" title="View the CWA Libraries project" rel="external">Core Web Application Libraries</a> to create a dynamic website. It gives developers a baseline to launch new sites quickly by addressing many of the details that should be included in every site. It follows industry best practices to make it simpler for developers to do the same.</p>
 						<p>Some features included in <a href="https://github.com/chriswells0/cwa-blog" title="View the CWA Blog project" rel="external">Core Web Application Blog</a>:</p>
 						<ul>
 							<li>A minimalist blogging platform with a WYSIWYG blog post editor, tags, an RSS feed, and multiple sharing options.</li>
