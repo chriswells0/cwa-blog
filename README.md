@@ -4,6 +4,7 @@ Core Web Application Blog provides a fully-functional example of how to use the 
 
 ## Features Included
 
+* A "starter" website with a home page, about page, and contact form.
 * A minimalist blogging platform with a WYSIWYG blog post editor, tags, an RSS feed, and multiple sharing options.
 * Blog comments and community powered by [Disqus](https://publishers.disqus.com/).
 * Responsive design that works well at multiple screen resolutions on devices of all sizes.

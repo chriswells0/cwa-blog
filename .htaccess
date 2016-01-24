@@ -49,8 +49,8 @@ RewriteRule ^(.*)$ https://%1/$1 [R=301,L]
 RewriteCond %{HTTPS} !=on
 RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [R=301,L]
 
-# Redirect root to the blog index.
-RewriteRule ^/?$ /blog [R=302,QSA,L]
+# Redirect root to the site index.
+RewriteRule ^/?$ /site [R=302,QSA,L]
 
 # If the URL ends with a trailing slash, remove it.
 RewriteRule ^(.*)/$ $1 [R=302,QSA,L]

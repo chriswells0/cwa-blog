@@ -1,5 +1,6 @@
 			<div id="navigation" class="sidebar">
 				<ul id="menu-primary" class="menu">
+					<li><a id="menu-home" href="/site" title="Return to Home" class="menu-item <?= $_GET['controller'] === 'site' && $_GET['method'] === 'index' ? 'selected' : '' ?>">Home</a></li>
 					<li><a id="menu-blog" href="/blog" title="Read my blog" class="menu-item <?= $_GET['controller'] === 'blog' ? 'selected' : '' ?>">Blog</a></li>
 					<li><a id="menu-tags" href="/tags" title="View all Tags" class="menu-item <?= $_GET['controller'] === 'tag' ? 'selected' : '' ?>">Tags</a></li>
 					<li><a id="menu-about" href="/site/about" title="Learn more about me and my site" class="menu-item <?= $_GET['method'] === 'about' ? 'selected' : '' ?>">About</a></li>

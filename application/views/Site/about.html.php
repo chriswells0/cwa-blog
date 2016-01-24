@@ -5,6 +5,7 @@
 						<p><a href="https://github.com/chriswells0/cwa-blog" title="View the CWA Blog project" rel="external">Core Web Application Blog</a> provides a fully-functional example of how to use the <a href="https://github.com/chriswells0/cwa-lib" title="View the CWA Libraries project" rel="external">Core Web Application Libraries</a> to create a dynamic website. It gives developers a baseline to launch new sites quickly by addressing many of the details that should be included in every site. It follows industry best practices to make it simpler for developers to do the same.</p>
 						<p>Some features included in <a href="https://github.com/chriswells0/cwa-blog" title="View the CWA Blog project" rel="external">Core Web Application Blog</a>:</p>
 						<ul>
+							<li>A "starter" website with a home page, about page, and contact form.</li>
 							<li>A minimalist blogging platform with a WYSIWYG blog post editor, tags, an RSS feed, and multiple sharing options.</li>
 							<li>Blog comments and community powered by <a href="https://publishers.disqus.com/" title="Visit the Disqus site" rel="external">Disqus</a>.</li>
 							<li>Responsive design that works well at multiple screen resolutions on devices of all sizes.</li>
