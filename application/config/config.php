@@ -20,9 +20,9 @@
 define('LIB_PATH', '../lib/');
 define('SITE_AUTHOR', 'Chris Wells'); // Used in meta tags, copyright notices, etc.
 define('SITE_DOMAIN', 'example.com'); // Must be the production domain.
-define('SITE_NAME', 'My CWA Blog'); // Displayed at the top of every page.
-define('SITE_SLOGAN', 'Welcome to my CWA Blog!'); // Shown below SITE_NAME.
-define('SITE_TITLE', 'My CWA Blog'); // Displayed in title bar.
+define('SITE_NAME', 'My CWA Site'); // Displayed at the top of every page.
+define('SITE_SLOGAN', 'Welcome to my CWA Site!'); // Shown below SITE_NAME.
+define('SITE_TITLE', 'My CWA Site'); // Displayed in title bar.
 define('CONTACT_ANONYMOUS_FROM', '"Anonymous Visitor" <anonymous@' . SITE_DOMAIN . '>'); // For users that provide no email in the contact form.
 define('CONTACT_SENDTO', '"' . SITE_AUTHOR . '" <webmaster@' . SITE_DOMAIN . '>'); // "To" address for the contact form.
 /* Define these to enable reCAPTCHA on the contact form. -- cwells

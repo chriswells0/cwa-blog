@@ -44,4 +44,4 @@ create user 'cwa_dbuser'@'localhost' identified by '9Sd.!i9$Ha,R';
 grant select, insert, update, delete on cwa_database.* to 'cwa_dbuser'@'localhost';
 ```
 
-Once you set up the blog, instructions for next steps are available on its main page.
+Once you set up the site, instructions for next steps are available on its main page.
