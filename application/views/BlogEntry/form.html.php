@@ -60,6 +60,7 @@ tinymce.init({
 	body_id: "wrapper",
 	browser_spellcheck: true,
 	content_css: "/styles/main.css?nocache=" + Math.random(),
+	convert_urls: false,
 	importcss_append: true,
 	importcss_groups: [{title: "Custom Styles"}],
 	plugins: "code fullscreen image importcss link preview table wordcount",
