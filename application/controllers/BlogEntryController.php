@@ -113,7 +113,7 @@ class BlogEntryController extends BaseDBController
 										'ImageWidth' => '',
 										'ImageHeight' => ''));
 		} else {
-			$dimensions = getimagesize(preg_replace('/^\.\.\/\.\./', '../public', $matches[1]));
+			$dimensions = getimagesize(preg_replace('/^(\.\.\/\.\.)?/', '../public', $matches[1]));
 			$this->view->setData(array('ImageURL' => preg_replace('/^\.\.\/\.\./', PROTOCOL_HOST_PORT, $matches[1]),
 										'ImageWidth' => $dimensions[0],
 										'ImageHeight' => $dimensions[1]));
