@@ -75,6 +75,14 @@ if (!is_null($BlogEntry->Published)) {
 ?>
 				</div>
 <script>
+<?php
+if (!$BlogEntry->Published) { // Prevent tracking of unpublished blog entries. -- cwells
+?>
+analyticsID = "";
+<?php
+}
+?>
+
 // Add the microdata attribute to each image in the blog entry. -- cwells
 $("#blog-entry-body > .visual > img").attr("itemprop", "image");
 </script>
