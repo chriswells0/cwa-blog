@@ -112,9 +112,13 @@ class BlogEntryController extends BaseDBController
 			$this->view->setData(array('ImageURL' => '',
 										'ImageWidth' => '',
 										'ImageHeight' => ''));
-		} else {
+		} else if (strpos($matches[1], 'http') === 0) { // Do not check dimensions of remote images. -- cwells
+			$this->view->setData(array('ImageURL' => $matches[1],
+										'ImageWidth' => '',
+										'ImageHeight' => ''));
+		} else { // Check the image dimensions. -- cwells
 			$dimensions = getimagesize(preg_replace('/^(\.\.\/\.\.)?/', '../public', $matches[1]));
-			$this->view->setData(array('ImageURL' => preg_replace('/^\.\.\/\.\./', PROTOCOL_HOST_PORT, $matches[1]),
+			$this->view->setData(array('ImageURL' => preg_replace('/^(\.\.\/\.\.)?/', PROTOCOL_HOST_PORT, $matches[1]),
 										'ImageWidth' => $dimensions[0],
 										'ImageHeight' => $dimensions[1]));
 		}
