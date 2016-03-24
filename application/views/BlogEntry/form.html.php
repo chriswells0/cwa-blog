@@ -64,6 +64,12 @@ tinymce.init({
 	importcss_append: true,
 	importcss_groups: [{title: "Custom Styles"}],
 	plugins: "code fullscreen image importcss link preview table wordcount",
+	rel_list: [
+		{ title: "None", value: "" },
+		{ title: "External", value: "external" },
+		{ title: "No Follow", value: "nofollow" },
+		{ title: "External and No Follow", value: "external,nofollow" }
+	],
 	selector: "#Body",
 	setup: function (editor) {
 		var warning = "You have unsaved changes on this page!";
