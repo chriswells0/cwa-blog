@@ -1,6 +1,6 @@
 <?php
 $output = '';
-$tags = $Item->Tags;
+$tags = ${$ModelType}->Tags;
 $lastIndex = count($tags) - 1;
 if ($lastIndex === -1) {
 	$output = 'NONE';

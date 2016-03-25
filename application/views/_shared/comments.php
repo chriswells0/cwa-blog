@@ -1,7 +1,7 @@
 					<div id="disqus_thread"></div>
 					<script>
 					var disqus_shortname = '<?= DISQUS_SHORTNAME ?>'; // required
-					var disqus_identifier = '<?= get_class($Item) . '_' . $Item->ID ?>';
+					var disqus_identifier = '<?= $ModelType . '_' . ${$ModelType}->ID ?>';
 <?php
 if (!is_null($this->getCanonicalURL())) {
 	echo "					var disqus_url = '{$this->getCanonicalURL()}';";
