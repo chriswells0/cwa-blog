@@ -46,7 +46,7 @@ class TagController extends BaseDBController
 
 	public function view($itemID) {
 		parent::view($itemID);
-		$blogEntries = $this->view->getData('Item')->BlogEntries;
+		$blogEntries = $this->view->getData('Tag')->BlogEntries;
 		if (!$this->app->getCurrentUser()->hasRole('ADMIN')) {
 			for ($i = 0; $i < count($blogEntries); $i++) {
 				if (is_null($blogEntries[$i]->Published)) {
