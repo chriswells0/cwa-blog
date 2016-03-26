@@ -30,6 +30,7 @@ require_once 'views/_shared/status.html.php';
 						</div>
 						<div class="form-field">
 							<label for="Tags[]">Tags</label>
+							<input type="hidden" name="Tags[]" value="" />
 							<select name="Tags[]" id="Tags[]" multiple="multiple" size="10">
 <?php
 foreach($Tags as $Tag) {
