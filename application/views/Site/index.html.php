@@ -2,7 +2,7 @@
 					<h1>Home Page</h1>
 					<div class="content-body">
 						<p>To update this page, <a href="/account/login">log in</a> as an admin or developer and edit <a href="/admin/code/views~Site~index.html.php">index.html.php</a>.</p>
-						<p><a title="View the CWA Blog project" href="https://github.com/chriswells0/cwa-blog" rel="external">Core Web Application Blog</a> was created to help developers quickly launch new sites leveraging the <a href="https://github.com/chriswells0/cwa-lib" title="View the CWA Libraries project" rel="external">Core Web Application Libraries</a>. It's designed to be easily customized and extended.</p>
+						<p><a title="View the CWA Blog project" href="https://github.com/chriswells0/cwa-mvc-blog" rel="external">Core Web Application Blog</a> was created to help developers quickly launch new sites leveraging the <a href="https://github.com/chriswells0/cwa-lib" title="View the CWA Libraries project" rel="external">Core Web Application Libraries</a>. It's designed to be easily customized and extended.</p>
 						<p>Be sure to visit the <a title="Administer this site" href="/admin">Site Admin</a> section to familiarize yourself with the built-in tools. Although it's not on the main menu, there's also a dynamic <a title="View the site map" href="/site/map">site map</a> that you can use as a reference for the main URLs.</p>
 						<h2>Getting Started</h2>
 						<p>These steps should be performed right away:</p>
