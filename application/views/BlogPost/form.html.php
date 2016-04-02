@@ -69,7 +69,7 @@ tinymce.init({
 		{ title: "None", value: "" },
 		{ title: "External", value: "external" },
 		{ title: "No Follow", value: "nofollow" },
-		{ title: "External and No Follow", value: "external,nofollow" }
+		{ title: "External and No Follow", value: "external nofollow" }
 	],
 	selector: "#Body",
 	setup: function (editor) {
