@@ -1,7 +1,7 @@
 				<div class="content">
 					<h1>Site Map</h1>
 					<div class="content-body">
-						<p>This is a list of the main pages on this site.  Many pages (such as individual blog entries) are not listed simply because it would make the list too long.</p>
+						<p>This is a list of the main pages on this site.  Many pages (such as individual blog posts) are not listed simply because it would make the list too long.</p>
 <?php
 if ($CurrentUser->isLoggedIn()) {
 ?>

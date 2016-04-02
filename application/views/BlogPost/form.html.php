@@ -2,30 +2,30 @@
 require_once 'views/_shared/status.html.php';
 ?>
 			<div class="content">
-				<h1>Blog Entry</h1>
+				<h1>Blog Post</h1>
 				<div class="content-body">
-					<form id="blog-entry" action="/blog/save" method="post" enctype="multipart/form-data">
-						<input type="hidden" name="ID" id="ID" value="<?= $BlogEntry->ID ?>" />
+					<form id="blog-post" action="/blog/save" method="post" enctype="multipart/form-data">
+						<input type="hidden" name="ID" id="ID" value="<?= $BlogPost->ID ?>" />
 						<div class="form-field">
 							<label for="Title">Title</label>
-							<input type="text" name="Title" id="Title" value="<?= $BlogEntry->Title ?>" placeholder="User Friendly Title" autofocus required minlength="3" maxlength="50" />
+							<input type="text" name="Title" id="Title" value="<?= $BlogPost->Title ?>" placeholder="User Friendly Title" autofocus required minlength="3" maxlength="50" />
 						</div>
 						<div class="form-field">
 							<label for="Slug">Slug</label>
-							<input type="text" name="Slug" id="Slug" value="<?= $BlogEntry->Slug ?>" placeholder="url-friendly-slug" required minlength="3" maxlength="50" />
+							<input type="text" name="Slug" id="Slug" value="<?= $BlogPost->Slug ?>" placeholder="url-friendly-slug" required minlength="3" maxlength="50" />
 							<button type="button" id="slug-gen">Generate</button>
 						</div>
 						<div class="form-field">
 							<label for="Summary">Summary</label>
 							<div class="form-field">
-								<textarea name="Summary" id="Summary" placeholder="1-2 sentences (up to 160 characters) summarizing this blog entry." required minlength="5" maxlength="160" ><?= $BlogEntry->Summary ?></textarea>
+								<textarea name="Summary" id="Summary" placeholder="1-2 sentences (up to 160 characters) summarizing this blog post." required minlength="5" maxlength="160" ><?= $BlogPost->Summary ?></textarea>
 								<span><span id="charsLeft">160</span> characters remaining</span>
 							</div>
 						</div>
 						<div class="form-field">
 							<label for="Body">Body</label>
 							<div class="form-field">
-								<textarea name="Body" id="Body" minlength="5" maxlength="21200"><?= $BlogEntry->Body ?></textarea>
+								<textarea name="Body" id="Body" minlength="5" maxlength="21200"><?= $BlogPost->Body ?></textarea>
 							</div>
 						</div>
 						<div class="form-field">
@@ -34,7 +34,7 @@ require_once 'views/_shared/status.html.php';
 							<select name="Tags[]" id="Tags[]" multiple="multiple" size="10">
 <?php
 foreach($Tags as $Tag) {
-	echo "<option value=\"$Tag->ID\"" . (in_array($Tag->ID, $BlogEntryTagIDs) ? ' selected="selected"' : '') . ">$Tag->Value</option>";
+	echo "<option value=\"$Tag->ID\"" . (in_array($Tag->ID, $BlogPostTagIDs) ? ' selected="selected"' : '') . ">$Tag->Value</option>";
 }
 ?>
 							</select>
@@ -42,8 +42,8 @@ foreach($Tags as $Tag) {
 						<div class="form-field">
 							<label for="IsPublic">Public</label>
 							<input type="hidden" name="IsPublic" value="0" />
-							<input type="checkbox" name="IsPublic" id="IsPublic" value="1" <?= is_null($BlogEntry->Published) ? '' : 'checked="checked"' ?> />
-							<input type="hidden" name="Published" value="<?= $BlogEntry->Published ?>" />
+							<input type="checkbox" name="IsPublic" id="IsPublic" value="1" <?= is_null($BlogPost->Published) ? '' : 'checked="checked"' ?> />
+							<input type="hidden" name="Published" value="<?= $BlogPost->Published ?>" />
 						</div>
 						<div class="buttons">
 							<button type="submit">Save</button>
@@ -112,7 +112,7 @@ $("#Summary").on("input propertychange", function (e) {
 
 $("#Summary").trigger("input");
 
-$("#blog-entry").submit(function (e) {
+$("#blog-post").submit(function (e) {
 	if ($("#Summary").val().indexOf('"') !== -1) {
 		if (confirm("The summary cannot contain double quotes.\nMay I convert them to single quotes for you?")) {
 			$("#Summary").val($("#Summary").val().replace(/"/g, "'"));

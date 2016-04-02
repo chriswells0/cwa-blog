@@ -16,13 +16,13 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `BlogEntry`
+-- Table structure for table `BlogPost`
 --
 
-DROP TABLE IF EXISTS `BlogEntry`;
+DROP TABLE IF EXISTS `BlogPost`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `BlogEntry` (
+CREATE TABLE `BlogPost` (
   `ID` smallint(5) unsigned NOT NULL AUTO_INCREMENT,
   `Created` datetime NOT NULL,
   `Updated` datetime NOT NULL,
@@ -32,46 +32,46 @@ CREATE TABLE `BlogEntry` (
   `Summary` varchar(160) NOT NULL,
   `Body` varchar(21200) NOT NULL,
   PRIMARY KEY (`ID`),
-  UNIQUE KEY `UNQ_BLOGENTRY_SLUG` (`Slug`),
-  UNIQUE KEY `UNQ_BLOGENTRY_TITLE` (`Title`),
-  KEY `IDX_BLOGENTRY_SUMMARY` (`Summary`)
+  UNIQUE KEY `UNQ_BLOGPOST_SLUG` (`Slug`),
+  UNIQUE KEY `UNQ_BLOGPOST_TITLE` (`Title`),
+  KEY `IDX_BLOGPOST_SUMMARY` (`Summary`)
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `BlogEntry`
+-- Dumping data for table `BlogPost`
 --
 
-LOCK TABLES `BlogEntry` WRITE;
-/*!40000 ALTER TABLE `BlogEntry` DISABLE KEYS */;
-INSERT INTO `BlogEntry` VALUES (1,NOW(),NOW(),NOW(),'sample-blog-entry','Sample Blog Entry','This is a sample blog entry. After customizing the site, you can edit this post to create your first blog entry.','<p><a title=\"View the CWA Blog project\" href=\"https://github.com/chriswells0/cwa-blog\" rel=\"external\">Core Web Application Blog</a> was created to help developers quickly launch new sites leveraging the <a title=\"View the CWA Libraries project\" href=\"https://github.com/chriswells0/cwa-lib\" rel=\"external\">Core Web Application Libraries</a>. It\'s designed to be easily customized and extended.</p>\r\n<p>Be sure to visit the <a title=\"Administer this site\" href=\"/admin\">Site Admin</a> section to familiarize yourself with the built-in tools. Although it\'s not on the main menu, there\'s also a dynamic <a title=\"View the site map\" href=\"/site/map\">site map</a> that you can use as a reference for the main URLs.</p>\r\n<p>Once you\'ve customized the site, <a title=\"Edit this post\" href=\"/blog/edit/sample-blog-entry\">edit this post</a> to create your first blog entry!</p>');
-/*!40000 ALTER TABLE `BlogEntry` ENABLE KEYS */;
+LOCK TABLES `BlogPost` WRITE;
+/*!40000 ALTER TABLE `BlogPost` DISABLE KEYS */;
+INSERT INTO `BlogPost` VALUES (1,NOW(),NOW(),NOW(),'sample-blog-post','Sample Blog Post','This is a sample blog post. After customizing the site, you can edit this post to create your first blog post.','<p><a title=\"View the CWA Blog project\" href=\"https://github.com/chriswells0/cwa-blog\" rel=\"external\">Core Web Application Blog</a> was created to help developers quickly launch new sites leveraging the <a title=\"View the CWA Libraries project\" href=\"https://github.com/chriswells0/cwa-lib\" rel=\"external\">Core Web Application Libraries</a>. It\'s designed to be easily customized and extended.</p>\r\n<p>Be sure to visit the <a title=\"Administer this site\" href=\"/admin\">Site Admin</a> section to familiarize yourself with the built-in tools. Although it\'s not on the main menu, there\'s also a dynamic <a title=\"View the site map\" href=\"/site/map\">site map</a> that you can use as a reference for the main URLs.</p>\r\n<p>Once you\'ve customized the site, <a title=\"Edit this post\" href=\"/blog/edit/sample-blog-post\">edit this post</a> to create your first blog post!</p>');
+/*!40000 ALTER TABLE `BlogPost` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
--- Table structure for table `BlogEntry_Tag`
+-- Table structure for table `BlogPost_Tag`
 --
 
-DROP TABLE IF EXISTS `BlogEntry_Tag`;
+DROP TABLE IF EXISTS `BlogPost_Tag`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `BlogEntry_Tag` (
-  `BlogEntryID` smallint(5) unsigned NOT NULL,
+CREATE TABLE `BlogPost_Tag` (
+  `BlogPostID` smallint(5) unsigned NOT NULL,
   `TagID` smallint(5) unsigned NOT NULL,
-  UNIQUE KEY `UNQ_BLOGENTRYID_TAGID` (`BlogEntryID`,`TagID`),
-  KEY `FK_BLOGENTRY_TAG_TAGID` (`TagID`),
-  CONSTRAINT `FK_BLOGENTRY_TAG_BLOGENTRYID` FOREIGN KEY (`BlogEntryID`) REFERENCES `BlogEntry` (`ID`) ON DELETE CASCADE,
-  CONSTRAINT `FK_BLOGENTRY_TAG_TAGID` FOREIGN KEY (`TagID`) REFERENCES `Tag` (`ID`)
+  UNIQUE KEY `UNQ_BLOGPOSTID_TAGID` (`BlogPostID`,`TagID`),
+  KEY `FK_BLOGPOST_TAG_TAGID` (`TagID`),
+  CONSTRAINT `FK_BLOGPOST_TAG_BLOGPOSTID` FOREIGN KEY (`BlogPostID`) REFERENCES `BlogPost` (`ID`) ON DELETE CASCADE,
+  CONSTRAINT `FK_BLOGPOST_TAG_TAGID` FOREIGN KEY (`TagID`) REFERENCES `Tag` (`ID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `BlogEntry_Tag`
+-- Dumping data for table `BlogPost_Tag`
 --
 
-LOCK TABLES `BlogEntry_Tag` WRITE;
-/*!40000 ALTER TABLE `BlogEntry_Tag` DISABLE KEYS */;
-/*!40000 ALTER TABLE `BlogEntry_Tag` ENABLE KEYS */;
+LOCK TABLES `BlogPost_Tag` WRITE;
+/*!40000 ALTER TABLE `BlogPost_Tag` DISABLE KEYS */;
+/*!40000 ALTER TABLE `BlogPost_Tag` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --

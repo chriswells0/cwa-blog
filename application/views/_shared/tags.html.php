@@ -12,6 +12,6 @@ if ($lastIndex === -1) {
 	}
 }
 ?>
-					<div id="blog-entry-tags" title="Tags">
+					<div id="blog-post-tags" title="Tags">
 						<?= $output ?>
 					</div>

@@ -30,8 +30,8 @@ define('RECAPTCHA_PRIVATE_KEY', '');
 define('RECAPTCHA_PUBLIC_KEY', '');
 */
 define('DATE_DB_TO_PHP', 'D., M. j, Y');
-define('PUBLISHER_LOGO', '/images/logo.png'); // Used only for metadata on blog entries.
-define('PUBLISHER_NAME', 'Example.com'); // Used only for metadata on blog entries.
+define('PUBLISHER_LOGO', '/images/logo.png'); // Used only for metadata on blog posts.
+define('PUBLISHER_NAME', 'Example.com'); // Used only for metadata on blog posts.
 
 
 // Determine the current domain, which may or may not be the production SITE_DOMAIN. -- cwells

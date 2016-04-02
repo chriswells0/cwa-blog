@@ -26,9 +26,9 @@ class TagController extends BaseDBController
 		$this->indexSort = 'SortOrder ASC, Value ASC';
 		$this->indexLimit = 1000;
 		if ($GLOBALS['app']->getCurrentUser()->hasRole('ADMIN')) {
-			$this->indexClauses = "WHERE ID IN (SELECT TagID FROM BlogEntry_Tag) ORDER BY $this->indexSort";
-		} else { // Do not list tags for unpublished blog entries. -- cwells
-			$this->indexClauses = "WHERE ID IN (SELECT TagID FROM BlogEntry_Tag INNER JOIN BlogEntry ON BlogEntryID = BlogEntry.ID WHERE BlogEntry.Published IS NOT NULL) ORDER BY $this->indexSort";
+			$this->indexClauses = "WHERE ID IN (SELECT TagID FROM BlogPost_Tag) ORDER BY $this->indexSort";
+		} else { // Do not list tags for unpublished blog posts. -- cwells
+			$this->indexClauses = "WHERE ID IN (SELECT TagID FROM BlogPost_Tag INNER JOIN BlogPost ON BlogPostID = BlogPost.ID WHERE BlogPost.Published IS NOT NULL) ORDER BY $this->indexSort";
 		}
 		parent::__construct();
 
@@ -46,15 +46,15 @@ class TagController extends BaseDBController
 
 	public function view($itemID) {
 		parent::view($itemID);
-		$blogEntries = $this->view->getData('Tag')->BlogEntries;
+		$blogPosts = $this->view->getData('Tag')->BlogPosts;
 		if (!$this->app->getCurrentUser()->hasRole('ADMIN')) {
-			for ($i = 0; $i < count($blogEntries); $i++) {
-				if (is_null($blogEntries[$i]->Published)) {
-					unset($blogEntries[$i]);
+			for ($i = 0; $i < count($blogPosts); $i++) {
+				if (is_null($blogPosts[$i]->Published)) {
+					unset($blogPosts[$i]);
 				}
 			}
 		}
-		$this->view->setData('BlogEntryList', $blogEntries);
+		$this->view->setData('BlogPostList', $blogPosts);
 		$this->view->setData('PreviewSize', 1);
 	}
 

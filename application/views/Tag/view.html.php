@@ -28,8 +28,8 @@ if ($CurrentUser->hasRole('ADMIN')) {
 					</p>
 <?php
 }
-//						<h2 class="blog-entry-list">Blog Entries</h2>
-require_once 'views/BlogEntry/list.pretty.php';
+//						<h2 class="blog-post-list">Blog Posts</h2>
+require_once 'views/BlogPost/list.pretty.php';
 
 
 /*

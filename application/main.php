@@ -32,7 +32,7 @@ $app->setControllers(array(
 					 'authorizedRoles' => array('__ALL__' => array('ADMIN', 'DEV'),
 												'index' => array('QA'),
 												'qa' => array('QA'))),
-	'blog' => array('class' => 'BlogEntryController'),
+	'blog' => array('class' => 'BlogPostController'),
 	'error' => array('class' => 'ErrorController'),
 	'roles' => array('class' => 'RoleController',
 					'authorizedRoles' => array('__ALL__' => array('ADMIN'))),

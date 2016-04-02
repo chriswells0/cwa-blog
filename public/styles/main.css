@@ -10,7 +10,7 @@
  *  -> Header/Headings
  *  -> Footer
  *  -> Admin
- *  -> Blog Entries
+ *  -> Blog Posts
  *  -> Tags
  *  -> 3rd-Party Elements
  *  -> Print
@@ -932,10 +932,10 @@ h1 > a:hover, h2 > a:hover {
 }
 
 /* --------------------------------------------------
- * Blog Entries
+ * Blog Posts
  * -------------------------------------------------- */
 
-.blog-entry-published {
+.blog-post-published {
 	float: left;
 }
 
@@ -964,19 +964,19 @@ h1 > a:hover, h2 > a:hover {
 	padding: 15px;
 }
 
-#blog-entry #Summary {
+#blog-post #Summary {
 	height: 4em;
 }
 
-#blog-entry #Body {
+#blog-post #Body {
 	height: 400px;
 }
 
-#blog-entry-listing > .blog-entry > h2 {
+#blog-post-listing > .blog-post > h2 {
 	margin: 0 -10px;
 }
 
-#blog-entry-tags {
+#blog-post-tags {
 	background: url(/images/icons.png) no-repeat scroll 0 -54px transparent;
 	display: table;
 	font-size: 1.1em;
@@ -984,23 +984,23 @@ h1 > a:hover, h2 > a:hover {
 	padding-left: 32px;
 }
 
-#blog-entry-tags > a {
+#blog-post-tags > a {
 	text-decoration: none;
 }
 
-#blog-entry-tags > a:hover {
+#blog-post-tags > a:hover {
 	text-decoration: underline;
 }
 
 @media (max-width: 800px) {
-	#blog-entry-listing > .blog-entry > h2 {
+	#blog-post-listing > .blog-post > h2 {
 		margin: 7px -8px 0;
 		padding: 0 8px 2px;
 	}
 }
 
 @media (max-width: 520px) {
-	#blog-entry-listing > .blog-entry > h2 {
+	#blog-post-listing > .blog-post > h2 {
 		margin: 7px -5px 0;
 		padding: 0 5px 2px;
 	}
@@ -1010,7 +1010,7 @@ h1 > a:hover, h2 > a:hover {
  * Tags
  * -------------------------------------------------- */
 
-#tag > #blog-entry-listing > .content {
+#tag > #blog-post-listing > .content {
 	border-radius: 5px;
 	box-shadow: none;
 	margin: 20px 0;

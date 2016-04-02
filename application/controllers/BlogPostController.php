@@ -21,7 +21,7 @@ use \CWA\MVC\Controllers\InvalidArgumentException;
 
 require_once 'BaseDBController.php';
 
-class BlogEntryController extends BaseDBController
+class BlogPostController extends BaseDBController
 {
 	/* Constructor */
 	public function __construct() {
@@ -37,15 +37,15 @@ class BlogEntryController extends BaseDBController
 
 		parent::__construct();
 
-		$this->viewInfo['add']['title'] = 'Add Blog Entry';
-		$this->viewInfo['admin']['title'] = 'Blog Entry Admin';
-		$this->viewInfo['admin']['description'] = 'Blog Entry Admin on ' . DOMAIN . '.';
-		$this->viewInfo['edit']['title'] = 'Edit Blog Entry';
+		$this->viewInfo['add']['title'] = 'Add Blog Post';
+		$this->viewInfo['admin']['title'] = 'Blog Admin';
+		$this->viewInfo['admin']['description'] = 'Blog Admin on ' . DOMAIN . '.';
+		$this->viewInfo['edit']['title'] = 'Edit Blog Post';
 		$this->viewInfo['index']['title'] = 'Blog';
-		$this->viewInfo['index']['description'] = 'Recent blog entries by '. SITE_AUTHOR . ' on ' . SITE_DOMAIN . '.';
+		$this->viewInfo['index']['description'] = 'Recent blog posts by '. SITE_AUTHOR . ' on ' . SITE_DOMAIN . '.';
 		$this->viewInfo['page']['title'] = 'Blog - Page {PageNumber}';
-		$this->viewInfo['page']['description'] = 'Older blog entries by '. SITE_AUTHOR . ' on ' . SITE_DOMAIN . '.';
-		$this->viewInfo['save']['title'] = 'Save Blog Entry';
+		$this->viewInfo['page']['description'] = 'Older blog posts by '. SITE_AUTHOR . ' on ' . SITE_DOMAIN . '.';
+		$this->viewInfo['save']['title'] = 'Save Blog Post';
 		$this->viewInfo['view']['title'] = '{Title} :: Blog';
 		$this->viewInfo['view']['description'] = '{Summary}';
 		$this->viewInfo['view']['canonicalURL'] = PROTOCOL_HOST_PORT . "$this->pathInURL/view/{Slug}";
@@ -61,7 +61,7 @@ class BlogEntryController extends BaseDBController
 		if (is_null($tags)) {
 			throw new DatabaseException('Error loading tags.', 500);
 		}
-		$this->view->setData(array('Tags' => $tags, 'BlogEntryTagIDs' => $itemTagIDs));
+		$this->view->setData(array('Tags' => $tags, 'BlogPostTagIDs' => $itemTagIDs));
 	}
 
 	public function edit($itemID) {
@@ -70,16 +70,16 @@ class BlogEntryController extends BaseDBController
 		if (is_null($tags)) {
 			throw new DatabaseException('Error loading tags.', 500);
 		}
-		$records = $this->db->fetchAll('SELECT TagID FROM BlogEntry_Tag WHERE BlogEntryID = :BlogEntryID',
-										array('BlogEntryID' => $this->view->getData('BlogEntry')->ID));
+		$records = $this->db->fetchAll('SELECT TagID FROM BlogPost_Tag WHERE BlogPostID = :BlogPostID',
+										array('BlogPostID' => $this->view->getData('BlogPost')->ID));
 		if ($records === false) {
-			throw new DatabaseException('Failed to retrieve blog entry tag IDs.', 500);
+			throw new DatabaseException('Failed to retrieve blog post tag IDs.', 500);
 		}
 		$itemTagIDs = array();
 		foreach ($records as $record) {
 			$itemTagIDs[] = $record['TagID'];
 		}
-		$this->view->setData(array('Tags' => $tags, 'BlogEntryTagIDs' => $itemTagIDs));
+		$this->view->setData(array('Tags' => $tags, 'BlogPostTagIDs' => $itemTagIDs));
 	}
 
 	public function index() {
@@ -107,7 +107,7 @@ class BlogEntryController extends BaseDBController
 
 	public function view($itemID) {
 		parent::view($itemID);
-		$matchResult = preg_match('/<img\s[^>]*src=[\'"]([^\'"]+)[\'"]/', $this->view->getData('BlogEntry')->Body, $matches);
+		$matchResult = preg_match('/<img\s[^>]*src=[\'"]([^\'"]+)[\'"]/', $this->view->getData('BlogPost')->Body, $matches);
 		if ($matchResult === false || $matchResult === 0) {
 			$this->view->setData(array('ImageURL' => '',
 										'ImageWidth' => '',

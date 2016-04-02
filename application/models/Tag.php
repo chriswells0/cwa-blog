@@ -20,7 +20,7 @@ use \CWA\DB\DatabaseMapping;
 use \CWA\MVC\Models\DatabaseRecord;
 
 require_once \CWA\LIB_PATH . 'cwa/mvc/models/DatabaseRecord.php';
-require_once 'BlogEntry.php';
+require_once 'BlogPost.php';
 
 class Tag extends DatabaseRecord
 {
@@ -30,8 +30,8 @@ class Tag extends DatabaseRecord
 
 /* Database mappings: instantiated outside the class definition because they're static. */
 
-Tag::addDatabaseMapping('BlogEntries',
-	new DatabaseMapping(DatabaseMapping::ManyToMany, 'ID', 'BlogEntry_Tag.TagID', array(
-		new DatabaseMapping(DatabaseMapping::ManyToMany, 'BlogEntry_Tag.BlogEntryID', 'BlogEntry.ID')
+Tag::addDatabaseMapping('BlogPosts',
+	new DatabaseMapping(DatabaseMapping::ManyToMany, 'ID', 'BlogPost_Tag.TagID', array(
+		new DatabaseMapping(DatabaseMapping::ManyToMany, 'BlogPost_Tag.BlogPostID', 'BlogPost.ID')
 )));
 ?>
