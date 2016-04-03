@@ -43,7 +43,7 @@ CREATE TABLE `BlogPost` (
 
 LOCK TABLES `BlogPost` WRITE;
 /*!40000 ALTER TABLE `BlogPost` DISABLE KEYS */;
-INSERT INTO `BlogPost` VALUES (1,NOW(),NOW(),NOW(),'sample-blog-post','Sample Blog Post','This is a sample blog post. After customizing the site, you can edit this post to create your first blog post.','<p><a title=\"View the CWA Blog project\" href=\"https://github.com/chriswells0/cwa-mvc-blog\" rel=\"external\">Core Web Application Blog</a> was created to help developers quickly launch a blog leveraging the <a title=\"View the CWA Libraries project\" href=\"https://github.com/chriswells0/cwa-lib\" rel=\"external\">Core Web Application Libraries</a>. It\'s designed to be easily customized and extended.</p>\r\n<p>Once you\'ve customized the site, <a title=\"Edit this post\" href=\"/blog/edit/sample-blog-post\">edit this post</a> to create your first blog post!</p>');
+INSERT INTO `BlogPost` VALUES (1,NOW(),NOW(),NOW(),'sample-blog-post','Sample Blog Post','This is a sample blog post. After customizing the site, you can edit this post to create your first blog post.','<p><a title=\"View the CWA Blog project\" href=\"https://github.com/chriswells0/cwa-blog\" rel=\"external\">Core Web Application Blog</a> was created to help developers quickly add a blog to <a title=\"View the CWA Site project\" href=\"https://github.com/chriswells0/cwa-site\" rel=\"external\">Core Web Application Site</a>. It\'s designed to be easily customized and extended.</p>\r\n<p>Once you\'ve customized the site, <a title=\"Edit this post\" href=\"/blog/edit/sample-blog-post\">edit this post</a> to create your first blog post!</p>');
 /*!40000 ALTER TABLE `BlogPost` ENABLE KEYS */;
 UNLOCK TABLES;
 

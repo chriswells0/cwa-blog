@@ -1,6 +1,6 @@
-# Core Web Application MVC Blog
+# Core Web Application Blog
 
-Core Web Application MVC Blog provides everything needed to add a fully-functional blog to [Core Web Application Site](https://github.com/chriswells0/cwa-site). It includes database tables, models, views, controllers, and JavaScript/CSS.
+Core Web Application Blog provides everything needed to add a fully-functional blog to [Core Web Application Site](https://github.com/chriswells0/cwa-site). It includes database tables, models, views, controllers, and JavaScript/CSS.
 
 ## Features Included
 
@@ -43,4 +43,4 @@ Core Web Application MVC Blog provides everything needed to add a fully-function
 1. If you don't already have one, [create a Disqus account](https://disqus.com/admin/signup/) and generate one shortname for production and one for non-production.
 2. Merge the code from this project into your [Core Web Application Site](https://github.com/chriswells0/cwa-site) directory.
 3. Update application/config/config.php to set DISQUS_SHORTNAME using the shortnames you created in step 1.
-4. Log into the database you created per the instructions in [Core Web Application Site](https://github.com/chriswells0/cwa-site) to execute the cwa-mvc-blog.sql script using the source command.
+4. Log into the database you created per the instructions in [Core Web Application Site](https://github.com/chriswells0/cwa-site) to execute the cwa-blog.sql script using the source command.
