@@ -1,3 +1,0 @@
-[submodule "lib/cwa"]
-	path = lib/cwa
-	url = git@github.com:chriswells0/cwa-lib.git

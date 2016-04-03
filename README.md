@@ -1,12 +1,18 @@
-# Core Web Application Blog
+# Core Web Application MVC Blog
 
-Core Web Application Blog provides a fully-functional example of how to use the [Core Web Application Libraries](https://github.com/chriswells0/cwa-lib) to create a dynamic website. It gives developers a baseline to launch new sites quickly by addressing many of the details that should be included in every site. It follows industry best practices to make it simpler for developers to do the same.
+Core Web Application MVC Blog provides everything needed to add a fully-functional blog to [Core Web Application Site](https://github.com/chriswells0/cwa-site). It includes database tables, models, views, controllers, and JavaScript/CSS.
 
 ## Features Included
 
-* A "starter" website with a home page, about page, and contact form.
-* A minimalist blogging platform with a WYSIWYG blog post editor, tags, an RSS feed, and multiple sharing options.
+* Database script to create tables for blog posts and tags.
+* All necessary code: just merge into the [Core Web Application Site](https://github.com/chriswells0/cwa-site) directory.
+* A minimalist blogging platform with a WYSIWYG blog post editor, tags, and an RSS feed.
+* Multiple sharing options while respecting the privacy of your visitors by using [Social Share Privacy](https://github.com/panzi/SocialSharePrivacy).
 * Blog comments and community powered by [Disqus](https://publishers.disqus.com/).
+
+##### Features From [Core Web Application Site](https://github.com/chriswells0/cwa-site)
+
+* A "starter" website with a home page, about page, and contact form.
 * Responsive design that works well at multiple screen resolutions on devices of all sizes.
 * Search engine (and human!) friendly URLs with a consistent format: /controller/method/parameter
 * Ability to return data in a variety of content types such as HTML, JSON, or Atom/RSS by creating new view templates.
@@ -32,16 +38,9 @@ Core Web Application Blog provides a fully-functional example of how to use the 
   * Full session teardown and recreation upon login to inhibit session fixation.
   * Sessions are pinned to the user's IP and user agent string to thwart hijacking.
 
-## Database Setup
+## Setup and Configuration
 
-After you clone the project, log into your local database and run the following commands to set it up. It's recommended that you replace the username and password in these commands with your own.
-
-```sql
-create database `cwa_database`;
-use cwa_database;
-source database.sql;
-create user 'cwa_dbuser'@'localhost' identified by '9Sd.!i9$Ha,R';
-grant select, insert, update, delete on cwa_database.* to 'cwa_dbuser'@'localhost';
-```
-
-Once you set up the site, instructions for next steps are available on its main page.
+* If you don't already have one, [create a Disqus account](https://disqus.com/admin/signup/) and generate one shortname for production and one for non-production.
+* Merge the code from this project into your [Core Web Application Site](https://github.com/chriswells0/cwa-site) directory.
+* Update application/config/config.php to set DISQUS_SHORTNAME using the shortnames you created in step 1.
+* Log into the database you created per the instructions in [Core Web Application Site](https://github.com/chriswells0/cwa-site) to execute the cwa-mvc-blog.sql script using the source command.
