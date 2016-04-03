@@ -4,11 +4,11 @@ Core Web Application MVC Blog provides everything needed to add a fully-function
 
 ## Features Included
 
-* Database script to create tables for blog posts and tags.
-* All necessary code: just merge into the [Core Web Application Site](https://github.com/chriswells0/cwa-site) directory.
 * A minimalist blogging platform with a WYSIWYG blog post editor, tags, and an RSS feed.
 * Multiple sharing options while respecting the privacy of your visitors by using [Social Share Privacy](https://github.com/panzi/SocialSharePrivacy).
 * Blog comments and community powered by [Disqus](https://publishers.disqus.com/).
+* All necessary code: just merge into the [Core Web Application Site](https://github.com/chriswells0/cwa-site) directory.
+* Database script to create tables for blog posts and tags.
 
 ##### Features From [Core Web Application Site](https://github.com/chriswells0/cwa-site)
 
@@ -40,7 +40,7 @@ Core Web Application MVC Blog provides everything needed to add a fully-function
 
 ## Setup and Configuration
 
-* If you don't already have one, [create a Disqus account](https://disqus.com/admin/signup/) and generate one shortname for production and one for non-production.
-* Merge the code from this project into your [Core Web Application Site](https://github.com/chriswells0/cwa-site) directory.
-* Update application/config/config.php to set DISQUS_SHORTNAME using the shortnames you created in step 1.
-* Log into the database you created per the instructions in [Core Web Application Site](https://github.com/chriswells0/cwa-site) to execute the cwa-mvc-blog.sql script using the source command.
+1. If you don't already have one, [create a Disqus account](https://disqus.com/admin/signup/) and generate one shortname for production and one for non-production.
+2. Merge the code from this project into your [Core Web Application Site](https://github.com/chriswells0/cwa-site) directory.
+3. Update application/config/config.php to set DISQUS_SHORTNAME using the shortnames you created in step 1.
+4. Log into the database you created per the instructions in [Core Web Application Site](https://github.com/chriswells0/cwa-site) to execute the cwa-mvc-blog.sql script using the source command.
