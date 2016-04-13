@@ -71,7 +71,7 @@ if (!is_null($this->getCanonicalURL())) {
 	require_once 'views/_shared/menu.php';
 ?>
 			<div id="content-wrapper">
-				<link rel="stylesheet" href="/styles/main.css" media="screen, print" />
+				<link rel="stylesheet" property="stylesheet" href="/styles/main.css" media="screen, print" />
 				<script src="//code.jquery.com/jquery.min.js"></script>
 				<script src="/scripts/jquery.cookie.js"></script>
 				<script src="/scripts/cwa.js"></script>
