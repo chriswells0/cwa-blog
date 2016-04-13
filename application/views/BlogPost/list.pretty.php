@@ -39,13 +39,13 @@ if (count($BlogPostList) === 0) {
 					</div>
 <?php
 	}
-	if (!empty($BackURL) || !empty($NextURL)) {
+	if (!empty($PreviousPage) || !empty($NextPage)) {
 		echo '					<div id="pagination">';
-		if (!empty($BackURL)) {
-			echo '						<a class="page-action" rel="prev" href="' . $BackURL . '" title="View newer blog posts">← Newer Posts</a>';
+		if (!empty($PreviousPage)) {
+			echo '						<a class="page-action" rel="prev" href="' . $PreviousPage . '" title="View newer blog posts">← Newer Posts</a>';
 		}
-		if (!empty($NextURL)) {
-			echo '						<a class="page-action" rel="next" href="' . $NextURL . '" title="View older blog posts">Older Posts →</a>';
+		if (!empty($NextPage)) {
+			echo '						<a class="page-action" rel="next" href="' . $NextPage . '" title="View older blog posts">Older Posts →</a>';
 		}
 		echo '					</div>';
 	}
