@@ -25,8 +25,6 @@ class BlogPostController extends BaseDBController
 {
 	/* Constructor */
 	public function __construct() {
-		$this->pathInURL = \CWA\APP_ROOT . 'blog';
-
 		if ($GLOBALS['app']->getCurrentUser()->hasRole('ADMIN')) {
 			$this->adminSort = 'Published IS NULL DESC, Published DESC';
 			$this->indexSort = 'Published IS NULL DESC, Published DESC';

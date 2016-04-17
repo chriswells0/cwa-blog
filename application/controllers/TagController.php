@@ -22,7 +22,6 @@ class TagController extends BaseDBController
 {
 	/* Constructor: */
 	public function __construct() {
-		$this->pathInURL = \CWA\APP_ROOT . 'tags';
 		$this->indexSort = 'SortOrder ASC, Value ASC';
 		$this->indexLimit = 1000;
 		if ($GLOBALS['app']->getCurrentUser()->hasRole('ADMIN')) {
