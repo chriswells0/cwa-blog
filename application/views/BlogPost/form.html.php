@@ -25,7 +25,7 @@ require_once 'views/_shared/status.html.php';
 						<div class="form-field">
 							<label for="Body">Body</label>
 							<div class="form-field">
-								<textarea name="Body" id="Body" minlength="5" maxlength="21200"><?= $BlogPost->Body ?></textarea>
+								<textarea name="Body" id="Body" minlength="5" maxlength="21200" data-html-editor="true"><?= $BlogPost->Body ?></textarea>
 							</div>
 						</div>
 						<div class="form-field">
@@ -53,40 +53,7 @@ foreach($Tags as $Tag) {
 				</div>
 			</div>
 
-<script src="//tinymce.cachefly.net/4.1/tinymce.min.js"></script>
 <script>
-
-tinymce.init({
-	body_class: "content",
-	body_id: "wrapper",
-	browser_spellcheck: true,
-	content_css: "/styles/main.css?nocache=" + Math.random(),
-	convert_urls: false,
-	importcss_append: true,
-	importcss_groups: [{title: "Custom Styles"}],
-	plugins: "code fullscreen image importcss link preview table wordcount",
-	rel_list: [
-		{ title: "None", value: "" },
-		{ title: "External", value: "external" },
-		{ title: "No Follow", value: "nofollow" },
-		{ title: "External and No Follow", value: "external nofollow" }
-	],
-	selector: "#Body",
-	setup: function (editor) {
-		var warning = "You have unsaved changes on this page!";
-		editor.on("change", function (e) {
-			$(window).bind("beforeunload", function (e) {
-				if (warning !== null) {
-					(e || window.event).returnValue = warning;
-					return warning;
-				}
-			});
-		});
-		editor.on("submit", function (e) {
-			warning = null;
-		});
-	}
-});
 
 $("#Slug").focus(function () {
 	var slug = $(this);
