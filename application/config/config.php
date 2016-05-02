@@ -30,6 +30,7 @@ define('RECAPTCHA_PRIVATE_KEY', '');
 define('RECAPTCHA_PUBLIC_KEY', '');
 */
 define('DATE_DB_TO_PHP', 'D., M. j, Y');
+// Blog Post constants. -- cwells
 define('PUBLISHER_LOGO', '/images/logo.png'); // Used only for metadata on blog posts.
 define('PUBLISHER_NAME', 'Example.com'); // Used only for metadata on blog posts.
 
