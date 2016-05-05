@@ -18,7 +18,7 @@ if ($CurrentUser->isLoggedIn()) {
 }
 ?>
 				</ul>
-				<div id="feed" class="menu">
-					<a href="/blog?format=atom" title="Subscribe to my blog feed"><span class="hidden-phone">Subscribe<span class="hidden-tablet"> to Feed</span></span></a>
+				<div class="menu">
+					<a id="feed" href="/blog?format=atom" title="Subscribe to my blog feed"><span class="hidden-phone">Subscribe<span class="hidden-tablet"> to blog</span></span></a>
 				</div>
 			</div>
