@@ -77,7 +77,91 @@ class BlogPostController extends BaseDBController
 		foreach ($records as $record) {
 			$itemTagIDs[] = $record['TagID'];
 		}
-		$this->view->setData(array('Tags' => $tags, 'BlogPostTagIDs' => $itemTagIDs));
+		try {
+			require_once \CWA\LIB_PATH . 'cwa/io/FileManager.php';
+			$fileManager = new \CWA\IO\FileManager("../public/images$this->pathInURL");
+			$slug = $this->view->getData('BlogPost')->Slug;
+			$images = $fileManager->getDirectoryListing("$slug[0]/$slug")->Files;
+		} catch (Exception $ex) {
+			$images = array();
+		}
+		$this->view->setData(array('BlogPostTagIDs' => $itemTagIDs,
+									'Images' => $images,
+									'Tags' => $tags));
+	}
+
+	public function image(array &$properties) {
+		if (empty($properties)) {
+			throw new InvalidArgumentException('You must provide the values to update.', 400);
+		} else if (isset($properties['itemID'])) {
+			// itemID is the only parameter passed for deletions. -- cwells
+			$properties['action'] = 'delete';
+		} else if (!isset($properties['action']) || empty($properties['action'])) {
+			throw new InvalidArgumentException('You must specify the action to perform.', 400);
+		} else if (!isset($properties['Path']) || empty($properties['Path'])) {
+			throw new InvalidArgumentException('You must provide a path.', 400);
+		}
+
+		require_once \CWA\LIB_PATH . 'cwa/io/FileManager.php';
+		$fileManager = new \CWA\IO\FileManager("../public/images$this->pathInURL");
+		$action = $properties['action'];
+		$this->loadView('image');
+		if ($action === 'add') {
+			$fileWasProvided = (isset($_FILES['image']) && !empty($_FILES['image']) && !empty($_FILES['image']['name']));
+			if (!$fileWasProvided) {
+				throw new InvalidArgumentException('You must provide a file to upload.', 400);
+			}
+
+			$path = (empty($properties['Path']) ? '' : $properties['Path'] . DIRECTORY_SEPARATOR);
+			if (!$fileManager->isDirectory($path)) {
+				if (!$fileManager->isDirectory(dirname($path))) {
+					$fileManager->mkdir(dirname($path)); // Error check happens below. -- cwells
+				}
+				if (!$fileManager->mkdir($path)) {
+					$this->view->setStatus('Failed to create the image directory.', 500);
+					return;
+				}
+			}
+			if ($fileManager->saveUploadedFile($_FILES['image'], $path . $_FILES['image']['name'])) {
+				$itemID = (empty($properties['Path']) ? '' : $properties['Path'] . '/') . $_FILES['image']['name'];
+				$file = $fileManager->getFileInfo($itemID);
+				if (isset($file) && preg_match('/^(gif|jpe?g|png|tiff?)$/i', $file->getExtension()) !== 1) {
+					$fileManager->delete($itemID);
+					throw new InvalidArgumentException('Only images may be uploaded.', 400);
+				}
+
+				$this->view->setData(array('ModelType' => 'File',
+											'File' => $file));
+				$this->view->setStatus('Successfully saved the uploaded file.');
+			} else {
+				$this->view->setStatus('Failed to save the uploaded file.', 500);
+			}
+		} else if ($action === 'edit') {
+			$oldPath = $properties['Path'];
+			$parentDir = dirname($oldPath);
+			$newPath = ($parentDir === '.' ? '' : $parentDir . DIRECTORY_SEPARATOR) . $properties['Name'];
+			if ($fileManager->rename($oldPath, $newPath)) {
+				$itemID = ($parentDir === '.' ? '' : $parentDir . '/') . $properties['Name'];
+				$file = $fileManager->getFileInfo($itemID);
+				$this->view->setData(array('ModelType' => 'File',
+											'File' => $file));
+				$this->view->setStatus('Successfully renamed the specified file.');
+			} else {
+				$this->view->setStatus('Failed to rename the specified file.', 500);
+			}
+		} else if ($action === 'delete') {
+			if (empty($properties['itemID'])) {
+				throw new InvalidArgumentException('You must specify the item to delete.', 400);
+			}
+
+			if ($fileManager->delete($properties['itemID'])) {
+				$this->view->setStatus('Successfully deleted the specified item.');
+			} else {
+				$this->view->setStatus('Error deleting the specified item.', 500);
+			}
+		} else {
+			throw new InvalidArgumentException('You have specified an invalid action.', 400);
+		}
 	}
 
 	public function index() {
@@ -99,6 +183,24 @@ class BlogPostController extends BaseDBController
 
 		// The Summary should be plain text with no double quotes. -- cwells
 		$properties['Summary'] = str_replace('"', "'", strip_tags($properties['Summary']));
+
+		if ($properties['OldSlug'] !== $properties['Slug']) {
+			require_once \CWA\LIB_PATH . 'cwa/io/FileManager.php';
+			$fileManager = new \CWA\IO\FileManager("../public/images$this->pathInURL");
+			$oldPath = $properties['OldSlug'][0] . '/' . $properties['OldSlug'];
+			$newPath = $properties['Slug'][0] . '/' . $properties['Slug'];
+			if ($fileManager->isDirectory($oldPath)) {
+				if (!$fileManager->isDirectory(dirname($newPath))) {
+					$fileManager->mkdir(dirname($newPath)); // Error check happens below. -- cwells
+				}
+				if (!$fileManager->rename($oldPath, $newPath)) {
+					throw new InvalidArgumentException('Failed to rename the image directory.', 500);
+				}
+				// Update any URLs that refer to the old path in the content. -- cwells
+				$properties['Body'] = str_replace("/images$this->pathInURL/$oldPath/", "/images$this->pathInURL/$newPath/", $properties['Body']);
+			}
+		}
+		unset($properties['OldSlug']);
 
 		parent::save($properties);
 	}

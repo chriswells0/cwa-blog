@@ -1028,10 +1028,54 @@ h1 > a:hover, h2 > a:hover {
 	text-decoration: underline;
 }
 
+#image-manager {
+	border-top: 1px solid #808080;
+	margin-top: 30px;
+	padding-top: 20px;
+}
+
+#image-manager > h2 {
+	margin-bottom: 10px;
+}
+
+#image-list {
+	list-style-type: none;
+	overflow: hidden;
+	padding-left: 0;
+}
+
+#image-list > li {
+	float: left;
+	margin-top: 30px;
+	max-width: 50%;
+	min-width: 185px;
+	text-align: center;
+}
+
+#image-list > li > a > img {
+	max-width: 96%;
+}
+
+#image-list > li > .actions {
+	float: none;
+}
+
+#image-actions {
+	display: none;
+}
+
+#add-image > .form-field > label {
+	width: 32%;
+}
+
 @media (max-width: 800px) {
 	#blog-post-listing > .blog-post > h2 {
 		margin: 7px -8px 0;
 		padding: 0 8px 2px;
+	}
+
+	#add-image > .form-field > label {
+		width: auto;
 	}
 }
 
@@ -1039,6 +1083,10 @@ h1 > a:hover, h2 > a:hover {
 	#blog-post-listing > .blog-post > h2 {
 		margin: 7px -5px 0;
 		padding: 0 5px 2px;
+	}
+
+	#image-list > li {
+		max-width: 100%;
 	}
 }
 

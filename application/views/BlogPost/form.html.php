@@ -11,6 +11,7 @@ require_once 'views/_shared/status.html.php';
 							<input type="text" name="Title" id="Title" value="<?= $BlogPost->Title ?>" placeholder="User Friendly Title" autofocus required minlength="3" maxlength="50" />
 						</div>
 						<div class="form-field">
+							<input type="hidden" name="OldSlug" value="<?= isset($BlogPost->OldSlug) ? $BlogPost->OldSlug : $BlogPost->Slug ?>" />
 							<label for="Slug">Slug</label>
 							<input type="text" name="Slug" id="Slug" value="<?= $BlogPost->Slug ?>" placeholder="url-friendly-slug" required minlength="3" maxlength="50" />
 							<button type="button" id="slug-gen">Generate</button>
@@ -50,6 +51,13 @@ foreach($Tags as $Tag) {
 							<button type="button" onclick="document.location='/blog/admin'; return false;">Cancel</button>
 						</div>
 					</form>
+<?php
+$imageDir = '';
+if (!empty($BlogPost->Slug)) {
+	$imageDir = $BlogPost->Slug[0] . '/' . $BlogPost->Slug; // The sub-path for this item's images. -- cwells
+}
+require_once 'views/_shared/image-manager.php';
+?>
 				</div>
 			</div>
 
