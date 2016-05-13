@@ -184,7 +184,8 @@ class BlogPostController extends BaseDBController
 		// The Summary should be plain text with no double quotes. -- cwells
 		$properties['Summary'] = str_replace('"', "'", strip_tags($properties['Summary']));
 
-		if ($properties['OldSlug'] !== $properties['Slug']) {
+		// If this is an existing blog post and the slug changed, move associated images. -- cwells
+		if (!empty($properties['ID']) && $properties['OldSlug'] !== $properties['Slug']) {
 			require_once \CWA\LIB_PATH . 'cwa/io/FileManager.php';
 			$fileManager = new \CWA\IO\FileManager("../public/images$this->pathInURL");
 			$oldPath = $properties['OldSlug'][0] . '/' . $properties['OldSlug'];
