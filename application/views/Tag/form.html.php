@@ -31,7 +31,7 @@ require_once 'views/_shared/status.html.php';
 						</div>
 						<div class="buttons">
 							<button type="submit">Save</button>
-							<button type="button" onclick="document.location='/tags/admin'; return false;">Cancel</button>
+							<button type="button" data-cwa-click="cancelEdit">Cancel</button>
 						</div>
 					</form>
 				</div>

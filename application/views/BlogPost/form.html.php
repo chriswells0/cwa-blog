@@ -48,7 +48,7 @@ foreach($Tags as $Tag) {
 						</div>
 						<div class="buttons">
 							<button type="submit">Save</button>
-							<button type="button" onclick="document.location='/blog/admin'; return false;">Cancel</button>
+							<button type="button" data-cwa-click="cancelEdit">Cancel</button>
 						</div>
 					</form>
 <?php
