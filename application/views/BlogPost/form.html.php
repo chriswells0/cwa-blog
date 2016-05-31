@@ -4,17 +4,17 @@ require_once 'views/_shared/status.html.php';
 			<div class="content">
 				<h1>Blog Post</h1>
 				<div class="content-body">
-					<form id="blog-post" action="/blog/save" method="post" enctype="multipart/form-data">
-						<input type="hidden" name="ID" id="ID" value="<?= $BlogPost->ID ?>" />
+					<form id="blog-post" action="<?= $ControllerURL ?>/save" method="post" enctype="multipart/form-data">
+						<input type="hidden" name="ID" value="<?= $BlogPost->ID ?>" />
 						<div class="form-field">
 							<label for="Title">Title</label>
-							<input type="text" name="Title" id="Title" value="<?= $BlogPost->Title ?>" placeholder="User Friendly Title" autofocus required minlength="3" maxlength="50" />
+							<input type="text" name="Title" id="blog-title" class="long" value="<?= $BlogPost->Title ?>" placeholder="User Friendly Title" autofocus required minlength="3" maxlength="50" />
 						</div>
 						<div class="form-field">
 							<input type="hidden" name="OldSlug" value="<?= isset($BlogPost->OldSlug) ? $BlogPost->OldSlug : $BlogPost->Slug ?>" />
 							<label for="Slug">Slug</label>
-							<input type="text" name="Slug" id="Slug" value="<?= $BlogPost->Slug ?>" placeholder="url-friendly-slug" required minlength="3" maxlength="50" />
-							<button type="button" id="slug-gen">Generate</button>
+							<input type="text" name="Slug" id="blog-slug" class="long" value="<?= $BlogPost->Slug ?>" placeholder="url-friendly-slug" required minlength="3" maxlength="50" data-cwa-focus="suggestSlug" data-from="blog-title" data-to="blog-slug" />
+							<button type="button" data-cwa-click="updateSlug" data-from="blog-title" data-to="blog-slug">Generate</button>
 						</div>
 						<div class="form-field">
 							<label for="Summary">Summary</label>
@@ -26,13 +26,13 @@ require_once 'views/_shared/status.html.php';
 						<div class="form-field">
 							<label for="Body">Body</label>
 							<div class="form-field">
-								<textarea name="Body" id="Body" minlength="5" maxlength="21200" data-html-editor="true"><?= $BlogPost->Body ?></textarea>
+								<textarea name="Body" minlength="5" maxlength="21200" data-html-editor="true"><?= $BlogPost->Body ?></textarea>
 							</div>
 						</div>
 						<div class="form-field">
 							<label for="Tags[]">Tags</label>
 							<input type="hidden" name="Tags[]" value="" />
-							<select name="Tags[]" id="Tags[]" multiple="multiple" size="10">
+							<select name="Tags[]" multiple="multiple" size="10">
 <?php
 foreach($Tags as $Tag) {
 	echo "<option value=\"$Tag->ID\"" . (in_array($Tag->ID, $BlogPostTagIDs) ? ' selected="selected"' : '') . ">$Tag->Value</option>";
@@ -43,7 +43,7 @@ foreach($Tags as $Tag) {
 						<div class="form-field">
 							<label for="IsPublic">Public</label>
 							<input type="hidden" name="IsPublic" value="0" />
-							<input type="checkbox" name="IsPublic" id="IsPublic" value="1" <?= is_null($BlogPost->Published) ? '' : 'checked="checked"' ?> />
+							<input type="checkbox" name="IsPublic" value="1" <?= is_null($BlogPost->Published) ? '' : 'checked="checked"' ?> />
 							<input type="hidden" name="Published" value="<?= $BlogPost->Published ?>" />
 						</div>
 						<div class="buttons">
@@ -62,18 +62,6 @@ require_once 'views/_shared/image-manager.php';
 			</div>
 
 <script>
-
-$("#Slug").focus(function () {
-	var slug = $(this);
-	if (slug.val() === "") {
-		slug.val(CWA.MVC.View.createSlug($("#Title").val()));
-	}
-});
-
-$("#slug-gen").click(function (e) {
-	e.preventDefault();
-	$("#Slug").val(CWA.MVC.View.createSlug($("#Title").val()));
-});
 
 $("#Summary").on("input propertychange", function (e) {
 	var remaining = 160 - $("#Summary").val().length;
