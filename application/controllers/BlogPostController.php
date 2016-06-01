@@ -25,13 +25,9 @@ class BlogPostController extends BaseDBController
 {
 	/* Constructor */
 	public function __construct() {
-		if ($GLOBALS['app']->getCurrentUser()->hasRole('ADMIN')) {
-			$this->adminSort = 'Published IS NULL DESC, Published DESC';
-			$this->indexSort = 'Published IS NULL DESC, Published DESC';
-		} else {
-			$this->indexSort = 'Published DESC';
-			$this->indexClauses = "WHERE Published IS NOT NULL ORDER BY $this->indexSort";
-		}
+		$this->adminSort = 'Published IS NULL DESC, Published DESC';
+		$this->indexSort = 'Published DESC';
+		$this->indexClauses = "WHERE Published IS NOT NULL ORDER BY $this->indexSort";
 
 		parent::__construct();
 
