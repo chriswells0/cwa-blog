@@ -30,9 +30,12 @@ require_once 'views/_shared/status.html.php';
 							</div>
 						</div>
 						<div class="form-field">
+							<div class="actions">
+								<a class="add" href="/tags/add" title="Create a new tag" data-cwa-click="loadInModal">Add New Tag</a>
+							</div>
 							<label for="Tags[]">Tags</label>
 							<input type="hidden" name="Tags[]" value="" />
-							<select name="Tags[]" multiple="multiple" size="10">
+							<select id="blog-tags" name="Tags[]" multiple="multiple" size="10">
 <?php
 foreach($Tags as $Tag) {
 	echo "<option value=\"$Tag->ID\"" . (in_array($Tag->ID, $BlogPostTagIDs) ? ' selected="selected"' : '') . ">$Tag->Value</option>";
@@ -83,6 +86,34 @@ $("#blog-post").submit(function (e) {
 		return false;
 	}
 	return true;
+});
+
+CWA.MVC.View.on("cwa-modal-loaded", function (e, params) {
+	if (CWA.DOM.forms["tag"]) {
+		CWA.DOM.forms["tag"].on("cwa-form-submit-success", function (e, params) {
+			if (!params || !params.data || !params.data.Tag) {
+				return;
+			}
+			var inserted = false,
+				newTag = $("<option />", {
+					html: params.data.Tag.Value,
+					selected: "selected",
+					value: params.data.Tag.ID
+				}),
+				options = $("#blog-tags > option");
+			options.each(function () {
+				var option = $(this);
+				if (option.text() > params.data.Tag.Value) {
+					newTag.insertBefore(option);
+					inserted = true;
+					return false;
+				}
+			});
+			if (!inserted) {
+				newTag.appendTo($("#blog-tags"));
+			}
+		});
+	}
 });
 
 </script>

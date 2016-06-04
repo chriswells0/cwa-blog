@@ -4,7 +4,7 @@ require_once 'views/_shared/status.html.php';
 			<div id="tag" class="content">
 				<h1>Tag</h1>
 				<div class="content-body">
-					<form action="<?= $ControllerURL ?>/save" method="post">
+					<form id="tag" action="<?= $ControllerURL ?>/save" method="post">
 						<input type="hidden" name="ID" value="<?= $Tag->ID ?>" />
 						<div class="form-field">
 							<label for="tag-value">Value</label>
