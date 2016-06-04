@@ -1038,6 +1038,7 @@ h3 {
 }
 
 #blog-post-listing > .blog-post > h2 {
+	clear: none;
 	margin: 0 -10px;
 }
 
