@@ -89,8 +89,8 @@ $("#blog-post").submit(function (e) {
 });
 
 CWA.MVC.View.on("cwa-modal-loaded", function (e, params) {
-	if (CWA.DOM.forms["tag"]) {
-		CWA.DOM.forms["tag"].on("cwa-form-submit-success", function (e, params) {
+	if (CWA.DOM.forms["tag-form"]) {
+		CWA.DOM.forms["tag-form"].on("cwa-form-submit-success", function (e, params) {
 			if (!params || !params.data || !params.data.Tag) {
 				return;
 			}
