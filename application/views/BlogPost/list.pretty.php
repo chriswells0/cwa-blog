@@ -25,7 +25,7 @@ if (count($BlogPostList) === 0) {
 						<div class="content-body">
 							<p class="summary"><?= $BlogPost->Summary ?></p>
 <?= $BlogPost->getPreview(isset($PreviewSize) ? $PreviewSize : null) ?>
-							<div class="fade-out"></div>
+							<div class="fade-out hidden-print"></div>
 						</div>
 						<div class="actions">
 <?php if ($CurrentUser->hasRole('ADMIN')) { ?>
@@ -40,7 +40,7 @@ if (count($BlogPostList) === 0) {
 <?php
 	}
 	if (!empty($PreviousPage) || !empty($NextPage)) {
-		echo '					<div id="pagination">';
+		echo '					<div id="pagination" class="hidden-print">';
 		if (!empty($PreviousPage)) {
 			echo '						<a class="page-action" rel="prev" href="' . $PreviousPage . '" title="View newer blog posts">← Newer Posts</a>';
 		}

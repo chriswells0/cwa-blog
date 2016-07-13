@@ -1245,31 +1245,34 @@ h3 {
  * -------------------------------------------------- */
 
 @media print {
-	.hidden-print {
-		display: none !important;
+	.summary,
+	html,
+	body {
+		background-color: white;
 	}
 
-	.visible-print {
-		display: inherit;
-	}
-
-	#content-wrapper {
-		margin: 0;
-		top: 0;
-	}
-
-	#header, #navigation,
-	.share-heading, .ss-privacy {
-		display: none;
-	}
-
+	#content-wrapper,
 	#wrapper {
 		margin: 0;
+	}
+
+	#site-title {
+		width: 100%;
 	}
 
 	.content {
 		border: none;
 		box-shadow: none;
 		margin: 0;
+	}
+
+	.share-heading,
+	.ss-privacy,
+	.hidden-print {
+		display: none !important;
+	}
+
+	.visible-print {
+		display: inherit;
 	}
 }
