@@ -1119,6 +1119,12 @@ h3 {
 	}
 }
 
+@media screen and (max-width: 640px) {
+	.summary {
+		margin: 20px 0;
+	}
+}
+
 @media screen and (max-width: 520px) {
 	#blog-post-listing > .blog-post > h2 {
 		margin: 7px -5px 0;
