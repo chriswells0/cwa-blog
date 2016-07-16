@@ -572,9 +572,10 @@ form > .error {
 	border: 1px solid #808080;
 	border-radius: 10px;
 	box-shadow: 2px 3px 5px;
+	clear: right;
 	line-height: 2em;
 	margin: 30px 20px;
-/*	overflow: visible; */
+	overflow: auto;
 	padding: 30px;
 }
 
@@ -626,7 +627,7 @@ form > .error {
 
 	.content {
 		margin: 20px 0;
-		padding: 20px 10px;
+		padding: 10px;
 	}
 }
 
@@ -1217,6 +1218,10 @@ h3 {
 	height: 30px;
 }
 
+.social_share_privacy_area li.help_info > .info, .social_share_privacy_area > li .help_info.icon > .info {
+	width: auto;
+}
+
 .dummy_btn {
 	width: auto !important;
 }
@@ -1228,6 +1233,14 @@ h3 {
 .settings_info_menu.off {
 	min-width: auto !important;
 	position: relative !important;
+}
+
+.settings_info_menu.on {
+	max-width: 100%;
+}
+
+.settings_info_menu > form {
+	overflow: auto;
 }
 
 .settings_info_menu > form > fieldset > label {
