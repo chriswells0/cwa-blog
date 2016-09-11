@@ -357,7 +357,7 @@ div.label {
 	}
 
 	.hidden-tablet {
-		display: none;
+		display: none !important;
 	}
 
 	.visible-tablet {
@@ -367,7 +367,7 @@ div.label {
 
 @media screen and (max-width: 640px) {
 	.hidden-tablet-portrait {
-		display: none;
+		display: none !important;
 	}
 
 	.visual-left, .visual-right {
@@ -383,7 +383,7 @@ div.label {
 	}
 
 	.hidden-phone {
-		display: none;
+		display: none !important;
 	}
 
 	.visible-phone {
@@ -397,7 +397,7 @@ div.label {
 
 @media screen and (max-width: 420px) {
 	.hidden-phone-portrait {
-		display: none;
+		display: none !important;
 	}
 
 	.visible-phone-portrait {
