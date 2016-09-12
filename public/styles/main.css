@@ -1067,6 +1067,14 @@ h3 {
 	clear: none;
 }
 
+.content > #blog-post-listing > .content,
+.content > div > #blog-post-listing > .content {
+	border: 1px solid #ccc;
+	border-radius: 5px;
+	box-shadow: none;
+	margin: 20px 0;
+}
+
 #blog-post-listing > .blog-post > h2 {
 	margin: 0 -10px;
 }
@@ -1158,12 +1166,6 @@ h3 {
 /* --------------------------------------------------
  * Tags
  * -------------------------------------------------- */
-
-#tag > #blog-post-listing > .content {
-	border-radius: 5px;
-	box-shadow: none;
-	margin: 20px 0;
-}
 
 #tags > .content-body > .tag {
 	float: left;
