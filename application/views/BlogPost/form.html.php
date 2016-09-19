@@ -7,12 +7,12 @@ require_once 'views/_shared/status.html.php';
 					<form id="blog-post" action="<?= $ControllerURL ?>/save" method="post" enctype="multipart/form-data">
 						<input type="hidden" name="ID" value="<?= $BlogPost->ID ?>" />
 						<div class="form-field">
-							<label for="Title">Title</label>
+							<label for="blog-title">Title</label>
 							<input type="text" name="Title" id="blog-title" class="long" value="<?= $BlogPost->Title ?>" placeholder="User Friendly Title" autofocus required minlength="3" maxlength="50" />
 						</div>
 						<div class="form-field">
 							<input type="hidden" name="OldSlug" value="<?= isset($BlogPost->OldSlug) ? $BlogPost->OldSlug : $BlogPost->Slug ?>" />
-							<label for="Slug">Slug</label>
+							<label for="blog-slug">Slug</label>
 							<input type="text" name="Slug" id="blog-slug" class="long" value="<?= $BlogPost->Slug ?>" placeholder="url-friendly-slug" required minlength="3" maxlength="50" data-cwa-focus="suggestSlug" data-from="blog-title" data-to="blog-slug" />
 							<button type="button" data-cwa-click="updateSlug" data-from="blog-title" data-to="blog-slug">Generate</button>
 						</div>
@@ -33,7 +33,7 @@ require_once 'views/_shared/status.html.php';
 							<div class="actions">
 								<a class="add" href="/tags/add" title="Create a new tag" data-cwa-click="loadInModal">Add New Tag</a>
 							</div>
-							<label for="Tags[]">Tags</label>
+							<label for="blog-tags">Tags</label>
 							<input type="hidden" name="Tags[]" value="" />
 							<select id="blog-tags" name="Tags[]" multiple="multiple" size="10">
 <?php
@@ -46,7 +46,7 @@ foreach($Tags as $Tag) {
 						<div class="form-field">
 							<label for="IsPublic">Public</label>
 							<input type="hidden" name="IsPublic" value="0" />
-							<input type="checkbox" name="IsPublic" value="1" <?= is_null($BlogPost->Published) ? '' : 'checked="checked"' ?> />
+							<input type="checkbox" name="IsPublic" id="IsPublic" value="1" <?= is_null($BlogPost->Published) ? '' : 'checked="checked"' ?> />
 							<input type="hidden" name="Published" value="<?= $BlogPost->Published ?>" />
 						</div>
 						<div class="buttons">

@@ -17,7 +17,7 @@ require_once 'views/_shared/status.html.php';
 						</div>
 						<div class="form-field">
 							<label for="SortOrder">Sort Order</label>
-							<input type="text" name="SortOrder" value="<?= $Tag->SortOrder ?>" placeholder="10000" list="commonSortOrders" required minlength="1" maxlength="5" />
+							<input type="text" id="SortOrder" name="SortOrder" value="<?= $Tag->SortOrder ?>" placeholder="10000" list="commonSortOrders" required minlength="1" maxlength="5" />
 							<datalist id="commonSortOrders">
 								<option value="10000" />
 								<option value="15000" />
@@ -27,7 +27,7 @@ require_once 'views/_shared/status.html.php';
 						<div class="form-field">
 							<label for="ShowInMenu">Show In Menu</label>
 							<input type="hidden" name="ShowInMenu" value="0" />
-							<input type="checkbox" name="ShowInMenu" value="1" <?= ($Tag->ShowInMenu ? ' checked="checked"' : '') ?> />
+							<input type="checkbox" id="ShowInMenu" name="ShowInMenu" value="1" <?= ($Tag->ShowInMenu ? ' checked="checked"' : '') ?> />
 						</div>
 						<div class="buttons">
 							<button type="submit">Save</button>
