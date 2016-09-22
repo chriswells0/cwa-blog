@@ -96,9 +96,9 @@ CWA.MVC.View.on("cwa-modal-loaded", function (e, params) {
 			}
 			var inserted = false,
 				newTag = $("<option />", {
-					html: params.data.Tag.Value,
-					selected: "selected",
-					value: params.data.Tag.ID
+					"html": params.data.Tag.Value,
+					"selected": "selected",
+					"value": params.data.Tag.ID
 				}),
 				options = $("#blog-tags > option");
 			options.each(function () {

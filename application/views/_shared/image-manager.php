@@ -84,13 +84,13 @@ function addImageToList(image) {
 		newImage = $("<li />");
 
 	$("<a />", {
-		href: "<?= "$imagesURL/" ?>" + image.Path
+		"href": "<?= "$imagesURL/" ?>" + image.Path
 	}).append($("<img />", {
-		src: "<?= "$imagesURL/" ?>" + image.Path
+		"src": "<?= "$imagesURL/" ?>" + image.Path
 	})).appendTo(newImage);
 	$("<p />", {
-		class: "caption",
-		text: image.Name
+		"class": "caption",
+		"text": image.Name
 	}).appendTo(newImage);
 	actions.find(".edit").attr("href", actions.find(".edit").attr("href") + image.Path);
 	actions.find(".delete").attr("href", actions.find(".delete").attr("href") + image.Path);
@@ -145,7 +145,7 @@ $("#add-image").submit(function (e) {
 					} else if (supportsProgress) {
 						supportsProgress = false;
 						progress.remove();
-						$("<img />", { src: "/images/loading.gif" }).appendTo(loading);
+						$("<img />", { "src": "/images/loading.gif" }).appendTo(loading);
 					}
 				}, false);
 				return xhr;
