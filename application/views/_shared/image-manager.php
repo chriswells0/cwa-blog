@@ -56,7 +56,7 @@ if (empty($imageDir)) {
 								<input type="text" name="Name" value="" placeholder="New Name" autofocus required minlength="1" size="17" />
 								<div class="buttons">
 									<button type="submit">Save</button>
-									<button class="cancel" type="button">Cancel</button>
+									<button class="cancel" type="button" data-cwa-click="resetImageManager">Cancel</button>
 								</div>
 							</form>
 						</div>
@@ -75,10 +75,6 @@ function resetImageManager() {
 	$(".caption").show();
 	$(".actions > .links").show();
 }
-
-$("#edit-image > .buttons > .cancel").click(function (e) {
-	resetImageManager();
-});
 
 function addImageToList(image) {
 	var actions = $("#image-actions > .actions").clone(),
