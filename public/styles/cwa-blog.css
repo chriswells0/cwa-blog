@@ -102,10 +102,6 @@
 	padding: 15px;
 }
 
-#blog-post #Body {
-	height: 400px;
-}
-
 .blog-post > h2 {
 	clear: none;
 }
