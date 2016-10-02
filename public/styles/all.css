@@ -1,5 +1,8 @@
+
+/* The core theme CSS file. */
 @import url(/styles/cwa-site.css);
 
+/* Additions for the blog. */
 @import url(/styles/cwa-blog.css);
 
 /* Create and import a CSS file specific to your site for all overrides and additions. */
