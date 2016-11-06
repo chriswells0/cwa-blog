@@ -17,15 +17,17 @@ if ($CurrentUser->hasRole('ADMIN')) {
 
 if ($CurrentUser->hasRole('ADMIN')) {
 ?>
-					<p>
-						<div class="label">Created:</div><?= $Tag->Created ?>
-						<br />
-						<div class="label">Updated:</div><?= $Tag->Updated ?>
-						<br />
-						<div class="label">Sort Order:</div><?= $Tag->SortOrder ?>
-						<br />
-						<div class="label">Show In Menu:</div><?= ($Tag->ShowInMenu ? 'Yes' : 'No') ?>
-					</p>
+					<div class="content-body">
+						<p>
+							<div class="label">Created:</div><?= $Tag->Created ?>
+							<br />
+							<div class="label">Updated:</div><?= $Tag->Updated ?>
+							<br />
+							<div class="label">Sort Order:</div><?= $Tag->SortOrder ?>
+							<br />
+							<div class="label">Show In Menu:</div><?= ($Tag->ShowInMenu ? 'Yes' : 'No') ?>
+						</p>
+					</div>
 <?php
 }
 //						<h2 class="blog-post-list">Blog Posts</h2>
