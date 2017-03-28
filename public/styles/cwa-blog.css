@@ -226,6 +226,11 @@
 .disqus-link {
 	background: url(/images/icons.png) no-repeat scroll right -225px transparent;
 	padding-right: 32px;
+	text-decoration: none;
+}
+
+.disqus-link:hover {
+	text-decoration: underline;
 }
 
 #disqus_thread {

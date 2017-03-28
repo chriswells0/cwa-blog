@@ -10,11 +10,6 @@ if (count($BlogPostList) === 0) {
 	foreach ($BlogPostList as $BlogPost) {
 ?>
 					<div class="content blog-post">
-						<a href="/blog/view/<?= $BlogPost->Slug ?>#disqus_thread" title="Join the discussion" class="heading-addon disqus-link" data-disqus-identifier="<?= "BlogPost_$BlogPost->ID" ?>"></a>
-						<h2><a href="/blog/view/<?= $BlogPost->Slug ?>" title="<?= $BlogPost->Title ?>"><?= $BlogPost->Title ?></a></h2>
-						<div class="blog-post-published">
-							Published: <?= ($BlogPost->Published ? date(DATE_DB_TO_PHP, strtotime($BlogPost->Published)) : 'No') ?>
-						</div>
 <?php if ($CurrentUser->hasRole('ADMIN')) { ?>
 						<div class="actions hidden-phone-portrait hidden-tablet-portrait">
 							<a class="edit" href="/blog/edit/<?= $BlogPost->Slug ?>" title="Edit this item">Edit</a>
@@ -22,6 +17,11 @@ if (count($BlogPostList) === 0) {
 							<a class="delete" href="/blog/delete/<?= $BlogPost->Slug ?>" title="Delete this item">Delete</a>
 						</div>
 <?php } ?>
+						<h2><a href="/blog/view/<?= $BlogPost->Slug ?>" title="<?= $BlogPost->Title ?>"><?= $BlogPost->Title ?></a></h2>
+						<a href="/blog/view/<?= $BlogPost->Slug ?>#disqus_thread" title="Join the discussion" class="actions disqus-link" data-disqus-identifier="<?= "BlogPost_$BlogPost->ID" ?>"></a>
+						<div class="blog-post-published">
+							<span class="hidden-phone">Published: </span><?= ($BlogPost->Published ? date(DATE_DB_TO_PHP, strtotime($BlogPost->Published)) : 'No') ?>
+						</div>
 						<div class="content-body">
 							<p class="summary"><?= $BlogPost->Summary ?></p>
 <?= $BlogPost->getPreview(isset($PreviewSize) ? $PreviewSize : null) ?>

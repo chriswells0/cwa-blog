@@ -28,12 +28,6 @@ require_once 'views/_shared/status.html.php';
 						<meta itemprop="datePublished" content="<?= date(DateTime::ATOM, strtotime($BlogPost->Published)) ?>" />
 						<meta itemprop="dateModified" content="<?= date(DateTime::ATOM, strtotime($BlogPost->Updated)) ?>" />
 					</div>
-					<a href="#disqus_thread" title="Join the discussion" class="heading-addon disqus-link" data-disqus-identifier="<?= "BlogPost_$BlogPost->ID" ?>"></a>
-					<h1 itemprop="headline"><?= $BlogPost->Title ?></h1>
-					<div class="blog-post-published">
-						Published: <?= ($BlogPost->Published ? date(DATE_DB_TO_PHP, strtotime($BlogPost->Published)) : 'No') ?>
-
-					</div>
 <?php
 if ($CurrentUser->hasRole('ADMIN')) {
 ?>
@@ -45,6 +39,12 @@ if ($CurrentUser->hasRole('ADMIN')) {
 <?php
 }
 ?>
+					<h1 itemprop="headline"><?= $BlogPost->Title ?></h1>
+					<a href="#disqus_thread" title="Join the discussion" class="actions disqus-link" data-disqus-identifier="<?= "BlogPost_$BlogPost->ID" ?>"></a>
+					<div class="blog-post-published">
+						<span class="hidden-phone">Published: </span><?= ($BlogPost->Published ? date(DATE_DB_TO_PHP, strtotime($BlogPost->Published)) : 'No') ?>
+
+					</div>
 					<div class="content-body">
 						<p class="summary" itemprop="description"><?= $BlogPost->Summary ?></p>
 						<div id="blog-post-body" itemprop="articleBody">
