@@ -24,28 +24,13 @@
 	background-position: left -330px;
 }
 
-@media screen and (max-width: 800px) {
+@media screen and (min-width: 521px) and (max-width: 800px) {
 	#menu-blog {
 		background-position: 31px 2px;
 	}
 
 	#menu-tags {
 		background-position: 29px -52px;
-	}
-}
-
-@media screen and (max-width: 520px) {
-	#menu-blog {
-		background-position: 7px 6px;
-		padding-left: 38px !important;
-	}
-
-	#menu-tags {
-		background-position: 5px -48px;
-	}
-
-	.icon-rss {
-		background-position: 0 -330px;
 	}
 }
 
@@ -155,11 +140,6 @@
 }
 
 @media screen and (max-width: 800px) {
-	#blog-post-listing > .blog-post > h2 {
-		margin: 7px -8px 0;
-		padding: 0 8px 2px;
-	}
-
 	#add-image > .form-field > label {
 		width: auto;
 	}
@@ -172,11 +152,6 @@
 }
 
 @media screen and (max-width: 520px) {
-	#blog-post-listing > .blog-post > h2 {
-		margin: 7px -5px 0;
-		padding: 0 5px 2px;
-	}
-
 	#image-list > li {
 		max-width: 100%;
 	}
