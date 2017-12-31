@@ -19,7 +19,7 @@ if ($CurrentUser->isLoggedIn()) {
 ?>
 				</ul>
 				<div class="menu">
-					<h5 class="hidden-phone">Subscribe:</h5>
+					<h5>Subscribe:</h5>
 					<a class="icon icon-rss" href="/blog?format=atom" title="Subscribe to my blog feed"></a>
 				</div>
 			</div>
