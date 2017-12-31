@@ -27,7 +27,7 @@ if (count($TagList) === 0) {
 	foreach ($TagList as $Tag) {
 ?>
 							<tr>
-								<td><a href="/tags/view/<?= $Tag->Slug ?>"><?= $Tag->Value ?></a></td>
+								<td><a href="/tags/<?= $Tag->Slug ?>"><?= $Tag->Value ?></a></td>
 								<td class="hidden-tablet-portrait"><?= $Tag->SortOrder ?></td>
 								<td class="hidden-phone-portrait"><?= ($Tag->ShowInMenu ? 'Yes' : 'No') ?></td>
 								<td>

@@ -27,8 +27,8 @@ if (count($BlogPostList) === 0) {
 	foreach ($BlogPostList as $BlogPost) {
 ?>
 							<tr>
-								<td><a href="/blog/view/<?= $BlogPost->Slug ?>" title="<?= $BlogPost->Summary ?>"><?= $BlogPost->Title ?></a></td>
-								<td class="hidden-tablet-portrait"><a href="/blog/view/<?= $BlogPost->Slug ?>#disqus_thread" title="Read and respond to comments" data-disqus-identifier="<?= "BlogPost_$BlogPost->ID" ?>"></a></td>
+								<td><a href="/blog/<?= $BlogPost->Slug ?>" title="<?= $BlogPost->Summary ?>"><?= $BlogPost->Title ?></a></td>
+								<td class="hidden-tablet-portrait"><a href="/blog/<?= $BlogPost->Slug ?>#disqus_thread" title="Read and respond to comments" data-disqus-identifier="<?= "BlogPost_$BlogPost->ID" ?>"></a></td>
 								<td class="hidden-tablet-portrait"><?= (is_null($BlogPost->Published) ? 'Not published.' : $BlogPost->Published) ?></td>
 								<td>
 									<div class="actions">

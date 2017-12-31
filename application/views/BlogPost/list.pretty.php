@@ -17,8 +17,8 @@ if (count($BlogPostList) === 0) {
 							<a class="delete" href="/blog/delete/<?= $BlogPost->Slug ?>" title="Delete this item">Delete</a>
 						</div>
 <?php } ?>
-						<h2><a href="/blog/view/<?= $BlogPost->Slug ?>" title="<?= $BlogPost->Title ?>"><?= $BlogPost->Title ?></a></h2>
-						<a href="/blog/view/<?= $BlogPost->Slug ?>#disqus_thread" title="Join the discussion" class="actions disqus-link" data-disqus-identifier="<?= "BlogPost_$BlogPost->ID" ?>"></a>
+						<h2><a href="/blog/<?= $BlogPost->Slug ?>" title="<?= $BlogPost->Title ?>"><?= $BlogPost->Title ?></a></h2>
+						<a href="/blog/<?= $BlogPost->Slug ?>#disqus_thread" title="Join the discussion" class="actions disqus-link" data-disqus-identifier="<?= "BlogPost_$BlogPost->ID" ?>"></a>
 						<div class="blog-post-published">
 							<span class="hidden-phone">Published: </span><?= ($BlogPost->Published ? date(DATE_DB_TO_PHP, strtotime($BlogPost->Published)) : 'No') ?>
 						</div>
@@ -34,7 +34,7 @@ if (count($BlogPostList) === 0) {
 							<a class="delete" href="/blog/delete/<?= $BlogPost->Slug ?>" title="Delete this item">Delete</a>
 							|
 <?php } ?>
-							<a href="/blog/view/<?= $BlogPost->Slug ?>" title="Read the full blog post">Continue<span class="hidden-phone-portrait"> reading</span>...</a>
+							<a href="/blog/<?= $BlogPost->Slug ?>" title="Read the full blog post">Continue<span class="hidden-phone-portrait"> reading</span>...</a>
 						</div>
 					</div>
 <?php

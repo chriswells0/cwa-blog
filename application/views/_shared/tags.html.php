@@ -7,7 +7,7 @@ if ($lastIndex === -1) {
 } else {
 	for ($i = 0; $i <= $lastIndex; $i++) {
 		$sanitizedValue = $this->sanitize($tags[$i]->Value);
-		$output .= '<a href="/tags/view/' . $tags[$i]->Slug . '" title="View items tagged as ' . $sanitizedValue . '" rel="tag">' . $sanitizedValue . '</a>';
+		$output .= '<a href="/tags/' . $tags[$i]->Slug . '" title="View items tagged as ' . $sanitizedValue . '" rel="tag">' . $sanitizedValue . '</a>';
 		if ($i !== $lastIndex) $output .= ', ';
 	}
 }

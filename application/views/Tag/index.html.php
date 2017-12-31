@@ -8,7 +8,7 @@ if (count($TagList) === 0) {
 <?php
 } else {
 	foreach ($TagList as $Tag) {
-		echo "					<p class=\"tag\"><a href=\"/tags/view/$Tag->Slug\">$Tag->Value</a></p>";
+		echo "					<p class=\"tag\"><a href=\"/tags/$Tag->Slug\">$Tag->Value</a></p>";
 	}
 }
 ?>

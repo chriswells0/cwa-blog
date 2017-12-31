@@ -42,7 +42,7 @@ class BlogPostController extends BaseDBController
 		$this->viewInfo['save']['title'] = 'Save Blog Post';
 		$this->viewInfo['view']['title'] = '{Title} :: Blog';
 		$this->viewInfo['view']['description'] = '{Summary}';
-		$this->viewInfo['view']['canonicalURL'] = PROTOCOL_HOST_PORT . "$this->pathInURL/view/{Slug}";
+		$this->viewInfo['view']['canonicalURL'] = PROTOCOL_HOST_PORT . "$this->pathInURL/{Slug}";
 	}
 
 

@@ -33,7 +33,7 @@ class TagController extends BaseDBController
 
 		$this->viewInfo['view']['title'] = '{Value} :: Tags';
 		$this->viewInfo['view']['description'] = 'Items tagged {Value} on ' . SITE_DOMAIN . '.';
-		$this->viewInfo['view']['canonicalURL'] = PROTOCOL_HOST_PORT . "$this->pathInURL/view/{Slug}";
+		$this->viewInfo['view']['canonicalURL'] = PROTOCOL_HOST_PORT . "$this->pathInURL/{Slug}";
 	}
 
 
